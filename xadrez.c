@@ -5,6 +5,19 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
+
+//Função para movimentação do Bispo, Torre e Rainha
+void movimentoBispoTorreRainha (int numeroCasas, char direcao[20]) {
+    //Imprimindo direção do movimento
+    if (numeroCasas > 0){
+        printf("%s... ", direcao);
+        numeroCasas--;
+        movimentoBispoTorreRainha(numeroCasas, direcao);
+    }
+}
+
+
+//Função principal
 int main() {
 
     //Declaração de variáveis
@@ -77,11 +90,10 @@ int main() {
                 return 0;
             }
 
-            //Utilizando do-while para realiar a movimentação do Bispo
-            do {
-                printf("Movendo Bispo para %s...\n", direcao);
-                i++;
-            } while (i < numeroCasas);
+            //Utilizando a função movimentoBispoTorreRainha para realiar a movimentação do Bispo
+            printf("Movendo Bispo para ");
+            movimentoBispoTorreRainha(numeroCasas, direcao);
+            printf("\n");
 
             return 0;
 
@@ -122,13 +134,11 @@ int main() {
                 return 0;
             }           
 
-            //Utilizando while para realizar a movimentação da Torre
-            while (i < numeroCasas)
-            {   
-                
-                printf("Movendo Torre para %s...\n", direcao);
-                i++;
-            }
+            //Utilizando a função movimentoBispoTorreRainha para realiar a movimentação da Torre
+            printf("Movendo Torre para ");
+            movimentoBispoTorreRainha(numeroCasas, direcao);
+            printf("\n");
+
             return 0;
 
         //Movimentação da Rainha
@@ -186,11 +196,11 @@ int main() {
                 return 0;
             }
             
-            //Utilizando for para realizar a movimentação da Rainha
-            for (i = 0; i < numeroCasas; i++)
-            {
-                printf("Movendo Rainha para a %s...\n", direcao);
-            }
+            //Utilizando a função movimentoBispoTorreRainha para realiar a movimentação da Rainha
+            printf("Movendo Rainha para ");
+            movimentoBispoTorreRainha(numeroCasas, direcao);
+            printf("\n");
+
             return 0;
         
         //Movimentação do Cavalo
