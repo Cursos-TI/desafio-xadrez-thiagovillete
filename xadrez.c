@@ -13,6 +13,8 @@ int main() {
     int numeroCasas = 0;
     int opcaoDirecao = 0;
     char direcao[20];
+    char direcaox[20];
+    char direcaoy[20];
     int i = 0;
 
     //Menu principal
@@ -32,6 +34,7 @@ int main() {
         printf("1 - Bispo\n");
         printf("2 - Torre\n");
         printf("3 - Rainha\n");
+        printf("4 - Cavalo\n");
         scanf("%s", opcaoEscolhaPeca);
         printf("\n");
 
@@ -190,6 +193,84 @@ int main() {
             }
             return 0;
         
+        //Movimentação do Cavalo
+        case '4':
+            printf("Peça escolhida: Cavalo.\n");
+            printf("Para qual direção deseja se mover?\n");
+            printf("1 - Cima e esquerda\n");
+            printf("2 - Cima e direita\n");
+            printf("3 - Baixo e esquerda\n");
+            printf("4 - Baixo e direita\n");
+            printf("5 - Esquerda e cima\n");
+            printf("6 - Esquerda e baixo\n");
+            printf("7 - Direita e cima\n");
+            printf("8 - Direita e baixo\n");
+            scanf("%d", &opcaoDirecao);
+            printf("\n");
+
+            //Árvore de decisão para escolha da direção
+            if (opcaoDirecao == 1)
+            {
+                strcpy(direcaoy, "cima");
+                strcpy(direcaox, "esquerda");
+            }
+            else if (opcaoDirecao == 2)
+            {
+                strcpy(direcaoy, "cima");
+                strcpy(direcaox, "direita");
+            }
+            else if (opcaoDirecao == 3)
+            {
+                strcpy(direcaoy, "baixo");
+                strcpy(direcaox, "esquerda");
+            }
+            else if (opcaoDirecao == 4)
+            {
+                strcpy(direcaoy, "baixo");
+                strcpy(direcaox, "direita");
+            }
+            else if (opcaoDirecao == 5)
+            {
+                strcpy(direcaoy, "esquerda");
+                strcpy(direcaox, "cima");
+            }
+            else if (opcaoDirecao == 6)
+            {
+                strcpy(direcaoy, "esquerda");
+                strcpy(direcaox, "baixo");
+            }
+            else if (opcaoDirecao == 7)
+            {
+                strcpy(direcaoy, "direita");
+                strcpy(direcaox, "cima");
+            }
+            else if (opcaoDirecao == 8)
+            {
+                strcpy(direcaoy, "direita");
+                strcpy(direcaox, "baixo");
+            }
+            else
+            {
+                printf("Direção inválida. Saindo do jogo...\n");
+                return 0;
+            }
+
+            //Utilizando for e while aninhados para realizar a movimentação do Cavalo
+            for (i = 0; i <1; i++)
+            {
+                printf("Movendo Cavalo para %s... ", direcaoy);
+                printf("%s... ", direcaoy);
+                while (i<1)
+                {
+                    printf("%s\n", direcaox);
+                    i++;
+                }
+                
+            }
+            
+            return 0;
+
+        
         default:
             printf("Peça inválida. Saindo do jogo...\n");
             return 0;
@@ -199,6 +280,7 @@ int main() {
         printf("O Bispo se move em diagonal.\n");
         printf("A Torre se move para a direita, esqueda, cima e baixo.\n");
         printf("A Rainha se move para todas as direções.\n");
+        printf("O Cavalo se move em L.\n");
         break;
     case '3':
         printf("Saindo do jogo...\n");
